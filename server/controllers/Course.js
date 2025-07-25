@@ -47,19 +47,19 @@ exports.createCourse = async (req, res) => {
         }
 
         // Check if the tag given is valid
-    const tagDetails = await Tag.findById(tag)
-    if (!tagDetails) {
-      return res.status(404).json({
-        success: false,
-        message: "Category Details Not Found",
-      })
-    }
-    // Upload the Thumbnail to Cloudinary
-    const thumbnailImage = await uploadImageToCloudinary(
-      thumbnail,
-      process.env.FOLDER_NAME
-    )
-    console.log(thumbnailImage)
+        const tagDetails = await Tag.findById(tag)
+        if (!tagDetails) {
+            return res.status(404).json({
+                success: false,
+                message: "Category Details Not Found",
+            })
+        }
+        // Upload the Thumbnail to Cloudinary
+        const thumbnailImage = await uploadImageToCloudinary(
+            thumbnail,
+            process.env.FOLDER_NAME
+        )
+        console.log(thumbnailImage)
 
         const newCourse = await Course.create({
             courseName,
@@ -67,7 +67,7 @@ exports.createCourse = async (req, res) => {
             instructor: instructorDetails._id,
             whatYouWillLearn: whatYouWillLearn,
             price,
-            tag : tagDetails._id,
+            tag: tagDetails._id,
             thumbnail: thumbnailImage.secure_url,
 
         })
@@ -95,6 +95,36 @@ exports.createCourse = async (req, res) => {
             success: false,
             message: "Failed to create course",
             error: error.message,
+        })
+    }
+}
+
+//get all course
+exports.showAllCourses = async (req, res) => {
+    try {
+        const getCourses = await Course.find({},
+            { 
+                courseName: true,
+                price: true,
+                thumbnail: true,
+                instructor: true,
+                ratingAndReview: true,
+                studentsEnrolled: true
+            },
+
+        ).populate("Instructor").exec();
+
+        return res.status(200).json({
+            succcess: true,
+            message: "Data fetched for courses duccessfully",
+            data: getCourses
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Cannot fetch course data ",
+            error: error.message
         })
     }
 }
