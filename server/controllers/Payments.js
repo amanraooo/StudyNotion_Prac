@@ -102,5 +102,46 @@ exports.verifySignature = async (req, res) => {
 
     if (signature === digest) {
         console.log("payment is Authorized");
+
+
+        const {courseId, userId}= req.body.psyload.payment.entity.notes;
+
+        try{
+
+            const enrolledCourse = await Course.findOneAndUpdate(
+                {_id: courseId},
+                {$push:{studentsEnrolled: userId},
+                 new:true},
+            )
+
+            if(!enrolledCourse){
+                return res.status(500).json({
+                    success: false,
+                    message: 'Could not found'
+                })
+            }
+            console.log(enrolledCourse);
+
+            const enrolledStudent = await User.findOneAndUpdate(
+                {_id:userId},
+                {$push: {course:courseId}, new: true},
+            )
+            console.log(enrolledStudent);
+
+            const  emailResponse = await mailSender(enrolledStudent.email,
+                "Congratulations",
+                "You have successfully enrolled in the course"
+            );
+            console.log(emailResponse);
+
+            return res.status(200).json({
+                success: true,
+                message: "Signature veriified and course added",
+            })
+
+        }catch(err){
+            console.log(error);
+            
+        }
     }
 }
