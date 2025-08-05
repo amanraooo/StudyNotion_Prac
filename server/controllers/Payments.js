@@ -139,9 +139,18 @@ exports.verifySignature = async (req, res) => {
                 message: "Signature veriified and course added",
             })
 
-        }catch(err){
+        }catch(error){
             console.log(error);
-            
+            return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
         }
+    }
+    else{
+        return res.status(400).json({
+            success: false,
+            message: "Invalid request",
+        })
     }
 }
