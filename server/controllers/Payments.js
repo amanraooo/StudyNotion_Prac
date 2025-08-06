@@ -104,17 +104,19 @@ exports.verifySignature = async (req, res) => {
         console.log("payment is Authorized");
 
 
-        const {courseId, userId}= req.body.psyload.payment.entity.notes;
+        const { courseId, userId } = req.body.psyload.payment.entity.notes;
 
-        try{
+        try {
 
             const enrolledCourse = await Course.findOneAndUpdate(
-                {_id: courseId},
-                {$push:{studentsEnrolled: userId},
-                 new:true},
+                { _id: courseId },
+                {
+                    $push: { studentsEnrolled: userId },
+                    new: true
+                },
             )
 
-            if(!enrolledCourse){
+            if (!enrolledCourse) {
                 return res.status(500).json({
                     success: false,
                     message: 'Could not found'
@@ -123,12 +125,12 @@ exports.verifySignature = async (req, res) => {
             console.log(enrolledCourse);
 
             const enrolledStudent = await User.findOneAndUpdate(
-                {_id:userId},
-                {$push: {course:courseId}, new: true},
+                { _id: userId },
+                { $push: { course: courseId }, new: true },
             )
             console.log(enrolledStudent);
 
-            const  emailResponse = await mailSender(enrolledStudent.email,
+            const emailResponse = await mailSender(enrolledStudent.email,
                 "Congratulations",
                 "You have successfully enrolled in the course"
             );
@@ -139,15 +141,15 @@ exports.verifySignature = async (req, res) => {
                 message: "Signature veriified and course added",
             })
 
-        }catch(error){
+        } catch (error) {
             console.log(error);
             return res.status(500).json({
-            success: false,
-            message: error.message,
-        })
+                success: false,
+                message: error.message,
+            })
         }
     }
-    else{
+    else {
         return res.status(400).json({
             success: false,
             message: "Invalid request",
