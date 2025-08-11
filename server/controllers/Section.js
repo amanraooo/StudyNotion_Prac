@@ -1,7 +1,5 @@
 const Section = require("../models/Section");
 const Course = require("../models/Course");
-//const SubSection = require('../models/SubSection');
-
 // CREATE a new section
 exports.createSection = async (req, res) => {
 	try {
@@ -53,40 +51,42 @@ exports.createSection = async (req, res) => {
 	}
 };
 
-//update a section
-exports.updateSection = async (req, res)=>{
-    try{
-        const {sectionName, sectionId} = req.body;
-
-        const updatedSection = Section.findByIdAndUpdate(sectionId,
-            {sectionName},
-            {new: true}
-        )
-
-        res.status(200).json({
+// UPDATE a section
+exports.updateSection = async (req, res) => {
+	try {
+		const { sectionName, sectionId } = req.body;
+		const section = await Section.findByIdAndUpdate(
+			sectionId,
+			{ sectionName },
+			{ new: true }
+		);
+		res.status(200).json({
 			success: true,
-			message: "section created",
-			data:updatedSection,
+			message: section,
 		});
-    }catch (error) {
-		// Handle errors
+	} catch (error) {
+		console.error("Error updating section:", error);
 		res.status(500).json({
 			success: false,
 			message: "Internal server error",
-			error: error.message,
 		});
 	}
-}
+};
 
-//delete section
-exports.deleteSection = async(req,res)=>{
-    try{
-        const {sectionId} = req.body;
-
-        await Section.findByIdAndDelete(sectionId);
-
-        return res.status(200).json({success:true},{messsage:"Section deleted successfully"})
-    }catch(error){
-
-    }
-}
+// DELETE a section
+exports.deleteSection = async (req, res) => {
+	try {
+		const { sectionId } = req.params;
+		await Section.findByIdAndDelete(sectionId);
+		res.status(200).json({
+			success: true,
+			message: "Section deleted",
+		});
+	} catch (error) {
+		console.error("Error deleting section:", error);
+		res.status(500).json({
+			success: false,
+			message: "Internal server error",
+		});
+	}
+};
