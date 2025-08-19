@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import HighlightText from "../components/core/HomePage/HighlightText";
 import CTAButton from "../components/core/HomePage/Button";
 import Banner from "../assets/Images/banner.mp4"
+import CodeBlocks from "../components/core/HomePage/CodeBlocks"
+import HighlightText from './../components/core/HomePage/HighlightText';
+
 
 const Home = () => {
   return (
@@ -47,6 +50,22 @@ const Home = () => {
         </video>
     </div>
     
+        {/* Code section */}
+        <div>
+          <CodeBlocks
+          position={"lg:flex-row"}
+          heading={
+            <div className="text-4xl font-semibold"> Unlock Your 
+              <HighlightText text={"Coding Potential"}/>
+              with our online courses
+              subheading={'Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.'}
+            </div>
+          }
+          
+          
+          />
+        </div>
+
 
       </div>
 
