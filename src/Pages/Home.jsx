@@ -5,7 +5,7 @@ import HighlightText from "../components/core/HomePage/HighlightText";
 import CTAButton from "../components/core/HomePage/Button";
 import Banner from "../assets/Images/banner.mp4"
 import CodeBlocks from "../components/core/HomePage/CodeBlocks"
-import HighlightText from './../components/core/HomePage/HighlightText';
+
 
 
 const Home = () => {
@@ -53,18 +53,34 @@ const Home = () => {
         {/* Code section */}
         <div>
           <CodeBlocks
-          position={"lg:flex-row"}
-          heading={
-            <div className="text-4xl font-semibold"> Unlock Your 
-              <HighlightText text={"Coding Potential"}/>
-              with our online courses
-              subheading={'Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.'}
-            </div>
-          }
-          
-          
+            position={"lg:flex-row"}
+            heading={
+              <div className="text-4xl font-semibold">
+                Unlock your
+                <HighlightText text={"coding potential"} /> with our online
+                courses.
+              </div>
+            }
+            subheading={
+              "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
+            }
+            ctabtn1={{
+              btnText: "Try it Yourself",
+              link: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              link: "/signup",
+              active: false,
+            }}
+            codeColor={"text-yellow-25"}
+            codeblock={`<!DOCTYPE html>\n <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
+            backgroundGradient={<div className="codeblock1 absolute"></div>}
           />
         </div>
+
+            
 
 
       </div>
