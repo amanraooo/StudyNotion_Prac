@@ -5,6 +5,8 @@ import HighlightText from "../components/core/HomePage/HighlightText";
 import CTAButton from "../components/core/HomePage/Button";
 import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
+import TimelineSection from './../components/core/HomePage/TimelineSection';
+import LearningLanguageSection from './../components/core/HomePage/LearningLanguageSection';
 
 const Home = () => {
   return (
@@ -101,6 +103,8 @@ const Home = () => {
             codeColor={"text-white"}
             codeblock={`import React from "react";\n import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
             backgroundGradient={<div className="codeblock2 absolute"></div>}
+
+
           />
         </div>
       </div>
@@ -127,6 +131,38 @@ const Home = () => {
               </CTAButton>
             </div>
           </div>
+        </div>
+
+        <div
+          className="w-11/12 max-w-maxContent flex flex-col items-center
+            justify-between gap-7 mx-auto"
+        >
+          <div className="flex flex-row gap-5 items-center
+            justify-between mb-10 mt-[95px]">
+            <div className="text-4xl font-semibold w-[45%]">
+              Get the skills you need for a
+              <HighlightText text={"Job that is in demand"} />
+            </div>
+
+            <div className='flex flex-col gap-10 w-[40%] items-start'>
+              <div className='text-[16px]'>
+                The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+                 </div>
+
+                 <CTAButton active={true} linkto={"/signup"}> 
+                 <div>
+                  Learn more
+                 </div>
+
+                 </CTAButton>
+          </div>
+
+          </div>
+
+            <TimelineSection />
+
+            <LearningLanguageSection/>
+
         </div>
       </div>
 
