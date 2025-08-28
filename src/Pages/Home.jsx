@@ -7,6 +7,8 @@ import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import TimelineSection from './../components/core/HomePage/TimelineSection';
 import LearningLanguageSection from './../components/core/HomePage/LearningLanguageSection';
+import InstructorSection from './../components/core/HomePage/InstructorSection';
+
 
 const Home = () => {
   return (
@@ -105,6 +107,7 @@ const Home = () => {
             backgroundGradient={<div className="codeblock2 absolute"></div>}
 
 
+
           />
         </div>
       </div>
@@ -167,6 +170,15 @@ const Home = () => {
       </div>
 
       {/* section 3 */}
+
+      <div className="w-11/12 mx-auto max-w-maxContent flex flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white ">
+
+      <InstructorSection/>
+
+            <h2 className="text-center text-4xl font-semibold mt-10">review from other Learners</h2>
+
+
+      </div>
 
       {/* Footer */}
     </div>
