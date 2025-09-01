@@ -8,7 +8,7 @@ import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import TimelineSection from './../components/core/HomePage/TimelineSection';
 import LearningLanguageSection from './../components/core/HomePage/LearningLanguageSection';
 import InstructorSection from './../components/core/HomePage/InstructorSection';
-
+import ExploreMore from "../components/core/HomePage/ExploreMore"
 
 const Home = () => {
   return (
@@ -106,10 +106,11 @@ const Home = () => {
             codeblock={`import React from "react";\n import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
             backgroundGradient={<div className="codeblock2 absolute"></div>}
 
-
-
           />
         </div>
+
+            <ExploreMore/>
+
       </div>
 
       {/* Section 2 */}
