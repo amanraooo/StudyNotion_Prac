@@ -1,7 +1,7 @@
 import React from "react";
 import { HomePageExplore } from "../../../data/homepage-explore";
 import HighlightText from "./HighlightText";
-import {useState} from 'react'
+import { useState } from "react";
 
 const tabsName = [
   "Free",
@@ -30,23 +30,28 @@ const ExploreMore = () => {
       <div className="text-4xl font-semibold text-center ">
         Unlock the <HighlightText text={"Power of Code"} />
       </div>
-      <p className="text-center text-richblack-300 text-lg  mt-1">Learn to build anything you can imagine</p>
+      <p className="text-center text-richblack-300 text-lg  mt-1">
+        Learn to build anything you can imagine
+      </p>
 
       <div className="flex flex-row rounded-full bg-richblack-800 mb-5 mt-5 border-richblack-300 py-1 px-1 gap-5">
-        {
-            tabsName.map((element, index)=>{
-                return (
-                    <div className={`text-[16px] flex flex-row items-center gap-5 
-                    ${currentTab === element ? "bg-richblack-900 text-richblack-5 font-medium ": "text-richblack-200"}
+        {tabsName.map((element, index) => {
+          return (
+            <div
+              className={`text-[16px] flex flex-row items-center gap-5 
+                    ${
+                      currentTab === element
+                        ? "bg-richblack-900 text-richblack-5 font-medium "
+                        : "text-richblack-200"
+                    }
                      rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5 px-7 py-2`}
-                    key={index}
-                    onClick={()=>setMyCards(element)}
-                    >
-                        {element}
-                    </div>
-                )
-            })
-        }
+              key={index}
+              onClick={() => setMyCards(element)}
+            >
+              {element}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
