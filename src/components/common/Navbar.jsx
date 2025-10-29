@@ -27,7 +27,8 @@ const Navbar = () => {
           <ul className="flex gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
-                {link.title === "Catalog" ? (
+                {
+                link.title === "Catalog" ? (
                   <div></div>
                 ) : (
                   <Link to={link?.path}>
