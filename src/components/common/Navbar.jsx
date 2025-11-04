@@ -4,18 +4,36 @@ import { NavbarLinks } from "./../../data/navbar-links";
 import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import ProfileDropDown from "../core/Auth/ProfileDropDown"
+import { categories } from "../../services/apis";
+import {apiConnector} from "../../services/apiconnector";
 
 
 const Navbar = () => {
-  const location = useLocation();
-  const matchRoute = (route) => {
-    return matchPath({ path: route }, location.pathname);
-  };
 
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const { totalItems } = useSelector((state) => state.cart);
 
+  const location = useLocation();
+
+  const matchRoute = (route) => {
+    return matchPath({ path: route }, location.pathname);
+  };
+
+  const  [sublinks, setSublinks] = useState([]);
+
+  const fetchSublinks = async()=>{
+    try{
+        const result = await apiConnector("GET", categories.CATEGORIES_API);
+        setSublinks(result.data.data);
+    }catch(error){
+      console.log("could not fetch the catalog category list")
+    }
+  }
+  
+  useEffect(()=>{
+    fetchSublinks();
+  },[])
 
   return (
     <div className="flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700">
