@@ -6,7 +6,19 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import ProfileDropDown from "../core/Auth/ProfileDropDown"
 import { categories } from "../../services/apis";
 import {apiConnector} from "../../services/apiconnector";
+import {useState, useEffect} from "react"
+import { IoIosArrowDown } from "react-icons/io";
 
+const subLinks=[
+  {
+    title:"python",
+    link: "/catalog/pyhton"
+  },
+  {
+    title:"web Development",
+    link: "/catalog/web-Development"
+  },
+]
 
 const Navbar = () => {
 
@@ -20,20 +32,20 @@ const Navbar = () => {
     return matchPath({ path: route }, location.pathname);
   };
 
-  const  [sublinks, setSublinks] = useState([]);
+  // const  [sublinks, setSublinks] = useState([]);
 
-  const fetchSublinks = async()=>{
-    try{
-        const result = await apiConnector("GET", categories.CATEGORIES_API);
-        setSublinks(result.data.data);
-    }catch(error){
-      console.log("could not fetch the catalog category list")
-    }
-  }
+  // const fetchSublinks = async()=>{
+  //   try{
+  //       const result = await apiConnector("GET", categories.CATEGORIES_API);
+  //       setSublinks(result.data.data);
+  //   }catch(error){
+  //     console.log("could not fetch the catalog category list")
+  //   }
+  // }
   
-  useEffect(()=>{
-    fetchSublinks();
-  },[])
+  // useEffect(()=>{
+  //   fetchSublinks();
+  // },[])
 
   return (
     <div className="flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700">
@@ -57,7 +69,10 @@ const Navbar = () => {
               <li key={index}>
                 {
                   link.title === "Catalog" ? (
-                    <div></div>
+                    <div className="flex items-center gap-2">
+                      <p>{link.title}</p>
+                      <IoIosArrowDown />
+                    </div>
                   ) : (
                     <Link to={link?.path}>
                       <p
