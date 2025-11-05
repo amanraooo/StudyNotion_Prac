@@ -4,6 +4,8 @@ import Home from "./Pages/Home"
 import Navbar from './components/common/Navbar';
 import Login from "./Pages/Login"
 import Signup from "./Pages/Signup"
+import OpenRoute from "./components/core/Auth/OpenRoute"
+import ForgotPassword from "./Pages/ForgotPassword";
 
 function App() {
   return (
