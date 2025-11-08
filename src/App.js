@@ -21,7 +21,7 @@ function App() {
             </OpenRoute>
           }
         />
-    <Route
+        <Route
           path="login"
           element={
             <OpenRoute>
@@ -30,31 +30,32 @@ function App() {
           }
         />
 
-    <Route
+        <Route
           path="forgot-password"
           element={
             <OpenRoute>
               <ForgotPassword />
             </OpenRoute>
           }
-        />  
-<Route
+        />
+        
+        <Route
           path="verify-email"
           element={
             <OpenRoute>
               <VerifyEmail />
             </OpenRoute>
           }
-        />  
+        />
 
-    <Route
+        <Route
           path="update-password/:id"
           element={
             <OpenRoute>
               <UpdatePassword />
             </OpenRoute>
           }
-        />  
+        />
 
       </Routes>
     </div>
