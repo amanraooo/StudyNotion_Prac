@@ -38,7 +38,23 @@ function App() {
             </OpenRoute>
           }
         />  
+<Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
+            </OpenRoute>
+          }
+        />  
 
+    <Route
+          path="update-password/:id"
+          element={
+            <OpenRoute>
+              <UpdatePassword />
+            </OpenRoute>
+          }
+        />  
 
       </Routes>
     </div>
