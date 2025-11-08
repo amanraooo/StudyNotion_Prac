@@ -38,7 +38,7 @@ function App() {
             </OpenRoute>
           }
         />
-        
+
         <Route
           path="verify-email"
           element={
