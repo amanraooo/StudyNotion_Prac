@@ -29,6 +29,15 @@ const About = () => {
           </div>
         </div>
       </section>
+
+        {/* section 2 */}
+      <section className="border-b border-richblack-700">
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
+          <div className="h-[100px] "></div>
+          <Quote />
+        </div>
+      </section>
+
     </div>
   )
 }
