@@ -8,7 +8,7 @@ import OpenRoute from "./components/core/Auth/OpenRoute"
 import ForgotPassword from "./Pages/ForgotPassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import UpdatePassword from './Pages/UpdatePassword';
-import About from "./Pages/About"
+import About from "./Pages/About";
 
 
 function App() {
