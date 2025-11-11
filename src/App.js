@@ -58,7 +58,12 @@ function App() {
             </OpenRoute>
           }
         />
-
+        <Route
+          path="/about"
+          element={
+            <About />
+          }
+        />
       </Routes>
     </div>
 
