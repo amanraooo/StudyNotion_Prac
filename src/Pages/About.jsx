@@ -7,6 +7,7 @@ import BannerImage3 from "../assets/Images/aboutus3.webp"
 import Quote from "../components/core/AboutPage/Quote"
 import StatsComponenet from "../components/core/AboutPage/Stats"
 import LearningGrid from './../components/core/AboutPage/LearningGrid';
+import ContactFormSection from './../components/core/AboutPage/ContactFormSection';
 
 const About = () => {
     return (
@@ -105,7 +106,10 @@ const About = () => {
             <StatsComponenet />
 
             {/* section 5 */}
-            <LearningGrid />
+            <section className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
+        <LearningGrid />
+        <ContactFormSection />
+      </section>
         </div>
     )
 }
