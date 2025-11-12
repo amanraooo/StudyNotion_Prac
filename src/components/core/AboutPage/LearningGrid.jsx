@@ -1,4 +1,6 @@
 import React from 'react'
+import HighlightText from './../HomePage/HighlightText';
+import CTAButton from '../../core/HomePage/Button'
 
 const LearningGridArray = [
     {
@@ -44,8 +46,50 @@ const LearningGridArray = [
 
 const LearningGrid = () => {
     return (
-        <div>
+        <div className="grid mx-auto w-[350px] xl:w-fit grid-cols-1 xl:grid-cols-4 mb-12">
+            {
+                LearningGridArray.map((card, index) => {
+                    return (
+                        <div
+                            key={index}
+                            className={`${index === 0 && "lg:col-span-2"}
+                        ${card.order % 2 === 1 ? "bg-richblack-700" : "bg-richblack-800"
+                                }
+                        ${card.order === 3 && "lg:col-start-2"}`}
+                        >
+                            {
+                                card.order < 0 ?
+                                    (
+                                        <div>
+                                            <div>
+                                                {card.heading}
+                                                <HighlightText text={card.highlightText} />
+                                            </div>
+                                            <p>
+                                                {card.description}</p>
+                                            <div>
+                                                <CTAButton
+                                                    active={true}
+                                                    linkto={card.BtnLink}
+                                                >
+                                                    {card.BtnText}
+                                                </CTAButton>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <h1>
+                                                {card.heading}
+                                            </h1>
+                                            <p>{card.description}</p>
+                                        </div>
+                                    )
+                            }
 
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
