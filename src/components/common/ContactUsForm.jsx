@@ -120,6 +120,21 @@ const ContactUsForm = () => {
 }
             </select>
         </div>
+
+        <div>
+            <input 
+            type="number"
+            name="phonenumber"
+            id="phonenumber"
+            placeholder="12345 67890"
+            className="text-black"
+            {...register("phoneNo", {
+                required:{value:true, message:"Please enter Phone Number"},
+                maxLength:{value:10, message:"Invalid Phone Number"},
+                minLength:{value:8, message:"Invalid Phone Number"}
+            })}
+            />
+        </div>
         </div>
       </div>
 
