@@ -102,12 +102,15 @@ const ContactUsForm = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="phonenumber">Phone Number</label>
+        <label htmlFor="phonenumber"
+        className="lable-style"
+        >Phone Number</label>
 
         <div className="flex flex-row gap-5">
-        <div>
+        <div className="flex w-[81px] flex-col gap-2">
             <select name="dropdown" id="dropdown"
             {...register("countrycode", {required:true})}
+            className="form-style"
             >
 {
     CountryCode.map((ele,index)=>{
@@ -121,7 +124,7 @@ const ContactUsForm = () => {
             </select>
         </div>
 
-        <div>
+        <div className="flex w-[calc(100%-90px)] flex-col gap-2">
             <input 
             type="number"
             name="phonenumber"
@@ -136,6 +139,11 @@ const ContactUsForm = () => {
             />
         </div>
         </div>
+        {errors.phoneNo && (
+          <span className="-mt-1 text-[12px] text-yellow-100">
+            {errors.phoneNo.message}
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col gap-2">
