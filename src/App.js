@@ -66,7 +66,11 @@ function App() {
             <About />
           }
         />
+
+       <Route path="/contact" element={<Contact />} />
+
       </Routes>
+
     </div>
 
   );
