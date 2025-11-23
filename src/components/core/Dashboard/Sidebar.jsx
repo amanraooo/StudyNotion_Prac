@@ -1,13 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { VscSignOut } from "react-icons/vsc"
 import { logout } from '../../../services/operations/authAPI';
 import SidebarLink from './SidebarLink';
+import { sidebarLinks } from "../../../data/dashboard-links"
+import { VscSignOut } from "react-icons/vsc"
+import { useNavigate } from 'react-router-dom';
+import ConfirmationModal from './../../common/ConfirmationModal';
 
 const Sidebar = () => {
 
   const { loading: authLoading } = useSelector((state) => state.auth);
   const { user, loading: profileLoading } = useSelector((state) => state.profile);
+
+  const dispatch = useDispatch();
+  const  navigate = useNavigate();
+  const [confirmationModal, setConfirmationModal] = useState();
 
   if (profileLoading || authLoading) {
     return (
@@ -38,8 +46,30 @@ const Sidebar = () => {
             link={{ name: "Settings", path: "dashboard/settings" }}
             iconName="VscSettingGear"
           />
+
+          <button
+            onClick={() =>
+              setConfirmationModal({
+                text1: "Are you sure?",
+                text2: "You will be logged out of your account.",
+                btn1Text: "Logout",
+                btn2Text: "Cancel",
+                btn1Handler: () => dispatch(logout(navigate)),
+                btn2Handler: () => setConfirmationModal(null),
+              })
+            }
+            className="px-8 py-2 text-sm font-medium text-richblack-300"
+          >
+            <div className="flex items-center gap-x-2">
+              <VscSignOut className="text-lg" />
+              <span>Logout</span>
+            </div>
+          </button>
         </div>
       </div>
+
+      {confirmationModal && <ConfirmationModal modalData={confirmationModal}/>}
+      
     </div>
   )
 }
