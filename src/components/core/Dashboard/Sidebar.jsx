@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { sidebarLinks } from './../../../data/dashboard-links';
+
 import { logout } from '../../../services/operations/authAPI';
+import SidebarLink from './SidebarLink';
 
 const Sidebar = () => {
 
@@ -23,7 +24,7 @@ const Sidebar = () => {
         sidebarLinks.map((link,index)=>{
             if(link.type && user?.accountType !== link.type) return null;
             return (
-                <SidebarLink />
+                <SidebarLink key={link.id} link={link} iconName={link.icon} />
             )
 
         })
