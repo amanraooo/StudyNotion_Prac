@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-
+import { VscSignOut } from "react-icons/vsc"
 import { logout } from '../../../services/operations/authAPI';
 import SidebarLink from './SidebarLink';
 
