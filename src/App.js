@@ -10,6 +10,7 @@ import VerifyEmail from "./Pages/VerifyEmail";
 import UpdatePassword from './Pages/UpdatePassword';
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import MyProfile from "./components/core/Dashboard/MyProfile";
 
 function App() {
   return (
