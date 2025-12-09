@@ -17,7 +17,7 @@ const MyProfile = () => {
       {/* section 1 */}
       <div>
         <div>
-            <img src={`user?.image`} 
+            <img src={user?.image} 
             alt={`profile-${user?.firstName}`} 
             className='aspect-square w-[78px] rounded-full object-cover'
            />
@@ -27,7 +27,7 @@ const MyProfile = () => {
             <p>{user?.email}</p>
            </div>
         </div>
-        
+
         <IconBtn 
         text="Edit"
         onclick={()=>{
