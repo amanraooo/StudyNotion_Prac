@@ -70,6 +70,13 @@ function App() {
 
        <Route path="/contact" element={<Contact />} />
 
+          <Route
+          element={
+            <PrivateRoute>
+              <Dashboard/>
+            </PrivateRoute>
+          }
+          />
        <Route path="dashboard/my-profile" element={<MyProfile />} />
 
       </Routes>
