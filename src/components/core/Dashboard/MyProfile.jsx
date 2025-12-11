@@ -34,6 +34,18 @@ const MyProfile = () => {
             navigate("/dashboard/settings")
         }}
         />
+
+        {/* sectionw 2 */}
+        <div>
+          <div>
+            <p></p>
+            <IconBtn
+            text="edit"
+            onclick={()=>{navigate("dashboard/settings")}}
+            />
+          </div>
+          <p>{user?.additionalDetails?.about ?? "Write something about Yourself"}</p>
+        </div>
             
       </div>
     </div>
