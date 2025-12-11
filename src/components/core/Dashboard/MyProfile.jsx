@@ -57,33 +57,33 @@ const MyProfile = () => {
             onclick={() => { navigate("/dashboard/settings") }}
           />
         </div>
-<div>
-  <div>
-    <p>First Name</p>
-    <p>{user?.firstName}</p>
-  </div>
-  <div>
-    <p>Email</p>
-    <p>{user?.email}</p>
-  </div>
-  <div>
-    <p>Gender</p>
-    <p>{user?.additionalDetails?.gender}</p>
-  </div>
-  <div>
-    <p>Lastname</p>
-    <p>{user?.lastname}</p>
-  </div>
-  <div>
-    <p>Phone Number</p>
-        <p>{user?.additionalDetails?.contactNumber}</p>
+        <div>
+          <div>
+            <p>First Name</p>
+            <p>{user?.firstName}</p>
+          </div>
+          <div>
+            <p>Email</p>
+            <p>{user?.email}</p>
+          </div>
+          <div>
+            <p>Gender</p>
+            <p>{user?.additionalDetails?.gender}</p>
+          </div>
+          <div>
+            <p>Lastname</p>
+            <p>{user?.lastname}</p>
+          </div>
+          <div>
+            <p>Phone Number</p>
+            <p>{user?.additionalDetails?.contactNumber}</p>
 
-  </div>
-  <div>
-    <p>Date of Birth</p>
-    <p>{user?.additionalDetails?.dateOfBirth ?? "Add Date Of Birth"}</p>
-  </div>
-</div>
+          </div>
+          <div>
+            <p>Date of Birth</p>
+            <p>{user?.additionalDetails?.dateOfBirth ?? "Add Date Of Birth"}</p>
+          </div>
+        </div>
       </div>
 
     </div>
