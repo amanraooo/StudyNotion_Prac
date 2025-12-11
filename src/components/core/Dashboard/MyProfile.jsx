@@ -34,20 +34,58 @@ const MyProfile = () => {
             navigate("/dashboard/settings")
           }}
         />
-
-        {/* sectionw 2 */}
-        <div>
-          <div>
-            <p></p>
-            <IconBtn
-              text="edit"
-              onclick={() => { navigate("dashboard/settings") }}
-            />
-          </div>
-          <p>{user?.additionalDetails?.about ?? "Write something about Yourself"}</p>
-        </div>
-
       </div>
+
+      {/* sectionw 2 */}
+      <div>
+        <div>
+          <p></p>
+          <IconBtn
+            text="edit"
+            onclick={() => { navigate("dashboard/settings") }}
+          />
+        </div>
+        <p>{user?.additionalDetails?.about ?? "Write something about Yourself"}</p>
+      </div>
+
+      {/* section 3 */}
+      <div>
+        <div>
+          <p>Personal Details</p>
+          <IconBtn
+            text="edit"
+            onclick={() => { navigate("/dashboard/settings") }}
+          />
+        </div>
+<div>
+  <div>
+    <p>First Name</p>
+    <p>{user?.firstName}</p>
+  </div>
+  <div>
+    <p>Email</p>
+    <p>{user?.email}</p>
+  </div>
+  <div>
+    <p>Gender</p>
+    <p>{user?.additionalDetails?.gender}</p>
+  </div>
+  <div>
+    <p>Lastname</p>
+    <p>{user?.lastname}</p>
+  </div>
+  <div>
+    <p>Phone Number</p>
+        <p>{user?.additionalDetails?.contactNumber}</p>
+
+  </div>
+  <div>
+    <p>Date of Birth</p>
+    <p>{user?.additionalDetails?.dateOfBirth ?? "Add Date Of Birth"}</p>
+  </div>
+</div>
+      </div>
+
     </div>
   )
 }
