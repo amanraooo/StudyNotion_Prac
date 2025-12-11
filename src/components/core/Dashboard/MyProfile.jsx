@@ -68,7 +68,7 @@ const MyProfile = () => {
           </div>
           <div>
             <p>Gender</p>
-            <p>{user?.additionalDetails?.gender}</p>
+            <p>{user?.additionalDetails?.gender ?? "Add Gender"}</p>
           </div>
           <div>
             <p>Lastname</p>
@@ -76,7 +76,7 @@ const MyProfile = () => {
           </div>
           <div>
             <p>Phone Number</p>
-            <p>{user?.additionalDetails?.contactNumber}</p>
+            <p>{user?.additionalDetails?.contactNumber?? "Add Contact Number"}</p>
 
           </div>
           <div>
