@@ -76,7 +76,7 @@ const MyProfile = () => {
           </div>
           <div>
             <p>Phone Number</p>
-            <p>{user?.additionalDetails?.contactNumber?? "Add Contact Number"}</p>
+            <p>{user?.additionalDetails?.contactNumber ?? "Add Contact Number"}</p>
 
           </div>
           <div>
