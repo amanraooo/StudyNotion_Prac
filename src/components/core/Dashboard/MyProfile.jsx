@@ -5,8 +5,8 @@ import IconBtn from './../../common/IconBtn';
 
 const MyProfile = () => {
 
-    const  {user} = useSelector((state)=>state.profile)
-    const navigate = useNavigate(); 
+  const { user } = useSelector((state) => state.profile)
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -17,22 +17,22 @@ const MyProfile = () => {
       {/* section 1 */}
       <div>
         <div>
-            <img src={user?.image} 
-            alt={`profile-${user?.firstName}`} 
+          <img src={user?.image}
+            alt={`profile-${user?.firstName}`}
             className='aspect-square w-[78px] rounded-full object-cover'
-           />
+          />
 
-           <div>
+          <div>
             <p>{user?.firstName + " " + user?.lastName}</p>
             <p>{user?.email}</p>
-           </div>
+          </div>
         </div>
 
-        <IconBtn 
-        text="Edit"
-        onclick={()=>{
+        <IconBtn
+          text="Edit"
+          onclick={() => {
             navigate("/dashboard/settings")
-        }}
+          }}
         />
 
         {/* sectionw 2 */}
@@ -40,13 +40,13 @@ const MyProfile = () => {
           <div>
             <p></p>
             <IconBtn
-            text="edit"
-            onclick={()=>{navigate("dashboard/settings")}}
+              text="edit"
+              onclick={() => { navigate("dashboard/settings") }}
             />
           </div>
           <p>{user?.additionalDetails?.about ?? "Write something about Yourself"}</p>
         </div>
-            
+
       </div>
     </div>
   )
