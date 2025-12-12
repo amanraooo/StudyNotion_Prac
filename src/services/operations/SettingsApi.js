@@ -71,19 +71,19 @@ export function updateProfile(token, formData) {
 export async function changePassword(token, formData) {
     const toastId = toast.loading("Loading...")
 
-    try{
-        const response = await apiConnector("POST", CHANGE_PASSWORD_API,formData,{
+    try {
+        const response = await apiConnector("POST", CHANGE_PASSWORD_API, formData, {
             Authorization: `Bearer ${token}`,
         })
         console.log("CHANGE_PASSWORD_API API RESPONSE............", response)
 
-        if(!response.data.success){
+        if (!response.data.success) {
             throw new Error(response.data.message)
         }
         toast.success("Password Changed Succcessfully")
-    }catch(error){
-         console.log("CHANGE_PASSWORD_API API ERROR............", error)
-    toast.error(error.response.data.message)
+    } catch (error) {
+        console.log("CHANGE_PASSWORD_API API ERROR............", error)
+        toast.error(error.response.data.message)
     }
     toast.dismiss(toastId)
 }
