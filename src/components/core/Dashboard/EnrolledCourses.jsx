@@ -5,27 +5,27 @@ import { getUserEnrolledCourses } from '../../../services/operations/profileApi'
 const EnrolledCourses = () => {
 
     const [enrolledCourses, setEnrolledCourses] = useState();
-    const {token} = useSelector((state)=> state.auth)
+    const { token } = useSelector((state) => state.auth)
 
-    const getEnrolledCourses = async()=>{
-        try{
+    const getEnrolledCourses = async () => {
+        try {
             const response = await getUserEnrolledCourses(token)
 
             setEnrolledCourses(response)
-        }catch(error){
+        } catch (error) {
             console.log("unable to fetch enrolled courses")
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getEnrolledCourses();
-    },[])
-    
-  return (
-    <div>
-      
-    </div>
-  )
+    }, [])
+
+    return (
+        <div>
+
+        </div>
+    )
 }
 
 export default EnrolledCourses
