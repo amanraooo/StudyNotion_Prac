@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.4.0",
     "@reduxjs/toolkit": "^2.9.2",
     "cloudinary": "^2.7.0",
     "concurrently": "^9.2.0",
