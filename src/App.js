@@ -15,6 +15,7 @@ import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Error from './Pages/Error';
 import EnrolledCourses from './components/core/Dashboard/EnrolledCourses';
 import Cart from "./components/core/Dashboard/Cart";
+import { ACCOUNT_TYPE } from './utils/constants';
 
 function App() {
   return (
@@ -83,10 +84,17 @@ function App() {
         >
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/settings" element={<Settings />} />
-          <Route path="dashboard/cart" element={<Cart />} />
 
-          <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+          {
+            user?.accountType === ACCOUNT_TYPE.STUDENT && (
+              <>
+                <Route path="dashboard/cart" element={<Cart />} />
 
+                <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
+
+              </>
+            )
+          }
 
         </Route>
         <Route path="*" element={<Error />} />
