@@ -1,10 +1,12 @@
 import React from 'react'
-import { useSelector } from "react-redux"
-import { GiNinjaStar } from "react-icons"
+import { useSelector, useDispatch } from "react-redux"
+import { GiNinjaStar } from "react-icons/gi"
+import { RiDeleteBin6Line } from "react-icons/gi"
 
 const RenderCartCourses = () => {
 
     const { cart } = useSelector((state) => state.cart)
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -33,6 +35,16 @@ const RenderCartCourses = () => {
                                     </span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div>
+                            <button
+                                onClick={() => dispatch(removeFromCart(course.id))}>
+                                <RiDeleteBin6Line />
+                                <span>Remove</span>
+                            </button>
+
+                            <p>Rs{course?.price}</p>
                         </div>
                     </div>
                 })
