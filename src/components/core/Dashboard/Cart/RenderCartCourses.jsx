@@ -1,10 +1,10 @@
 import React from 'react'
-import {useSelector} from "react-redux"
-import {GiNinjaStar} from "react-icons"
+import { useSelector } from "react-redux"
+import { GiNinjaStar } from "react-icons"
 
 const RenderCartCourses = () => {
 
-    const {cart} = useSelector((state)=>state.cart)
+    const { cart } = useSelector((state) => state.cart)
 
     return (
         <div>
@@ -20,14 +20,14 @@ const RenderCartCourses = () => {
                                 <div>
                                     <span>4.8</span>
                                     <ReactStars
-                                    count={5}
-                                    size={20}
-                                    edit={false}
-                                    activeColor="#ffd700"
-                                    emptyIcon={<GiNinjaStar/>}
-                                    fullIcon={<GiNinjaStar/>}
-                                    /> 
-                                    
+                                        count={5}
+                                        size={20}
+                                        edit={false}
+                                        activeColor="#ffd700"
+                                        emptyIcon={<GiNinjaStar />}
+                                        fullIcon={<GiNinjaStar />}
+                                    />
+
                                     <span>
                                         {course?.ratingAndReviews?.length} Ratings
                                     </span>
