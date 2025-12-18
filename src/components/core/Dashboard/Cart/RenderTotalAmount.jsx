@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 
 const RenderTotalAmount = () => {
 
-  const {total} =useSelector((state)=> state.cart)
+  const { total } = useSelector((state) => state.cart)
 
-  const handleBuyCourse =()=>{
-    const courses = cart.map((course)=> course.id);
+  const handleBuyCourse = () => {
+    const courses = cart.map((course) => course.id);
     console.log("bought these courses", courses);
   }
   return (
@@ -16,9 +16,9 @@ const RenderTotalAmount = () => {
       <p>Rs {total}</p>
 
       <IconBtn
-      text="Buy Now"
-      onclick={handleBuyCourse}
-      customClasses={"w-full justify-center"}
+        text="Buy Now"
+        onclick={handleBuyCourse}
+        customClasses={"w-full justify-center"}
       />
     </div>
   )
