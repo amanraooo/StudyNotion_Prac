@@ -96,6 +96,16 @@ function App() {
             )
           }
 
+          {
+            user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+              <>
+
+                <Route path="dashboard/add-course" element={<AddCourse />} />
+
+              </>
+            )
+          }
+
         </Route>
         <Route path="*" element={<Error />} />
 
