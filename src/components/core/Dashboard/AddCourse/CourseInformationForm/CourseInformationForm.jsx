@@ -158,6 +158,18 @@ const CourseInformationForm = () => {
         setValue={setValue}
         getvalue={getValue}
       />
+
+      <div>
+        {
+          editCourse && (
+            <button 
+            onClick={()=>dispatch(setStep(2))}
+            >
+              Continue without saving 
+            </button>
+          )
+        }
+      </div>
     </form>
   )
 }
