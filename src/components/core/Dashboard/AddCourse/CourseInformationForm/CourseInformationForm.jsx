@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { appendErrors, useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux';
 
 const CourseInformationForm = () => {
@@ -108,7 +108,7 @@ const CourseInformationForm = () => {
       </div>
 
       <div>
-        <label htmlFor="">Course Category <sup>*</sup></label>
+        <label htmlFor="CourseCategory">Course Category <sup>*</sup></label>
         <select
           id="CourseCategory"
           name="CourseCategory"
@@ -126,7 +126,38 @@ const CourseInformationForm = () => {
             ))
           }
         </select>
+        {
+          errors.CourseCategory && (
+            <span>Course Category is required</span>
+          )
+        }
       </div>
+
+      <div>
+        <label htmlFor="">Benefits of the course <sup>*</sup></label>
+
+        <textarea
+          name="courseBenefits"
+          id="courseBenefits"
+          placeholder='Enter benefits of tye course'
+          {...register("courseBenefits", { required: true })}
+
+        />
+        {
+          errors.courseBenefits && (
+            <span>Benefits of the course are required**</span>
+          )
+        }
+      </div>
+
+      <RequirementField
+        name="courseRequirements"
+        label="Requirements/Instructions"
+        register={register}
+        errors={errors}
+        setValue={setValue}
+        getvalue={getValue}
+      />
     </form>
   )
 }
