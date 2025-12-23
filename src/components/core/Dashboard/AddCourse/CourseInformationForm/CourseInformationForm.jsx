@@ -26,7 +26,22 @@ const CourseInformationForm = () => {
       }
       setLoading(false);
     }
-  })
+
+    // if form is in edit mode
+    if (editCourse) {
+      // console.log("data populated", editCourse)
+      setValue("courseTitle", course.courseName)
+      setValue("courseShortDesc", course.courseDescription)
+      setValue("coursePrice", course.price)
+      setValue("courseTags", course.tag)
+      setValue("courseBenefits", course.whatYouWillLearn)
+      setValue("courseCategory", course.category)
+      setValue("courseRequirements", course.instructions)
+      setValue("courseImage", course.thumbnail)
+    }
+
+    getCategories();
+  },[])
   return (
     <div>
 
@@ -34,4 +49,4 @@ const CourseInformationForm = () => {
   )
 }
 
-export default CourseInformationForm
+export default CourseInformationForm;
